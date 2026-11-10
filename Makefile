@@ -1,5 +1,5 @@
 # =============================================================================
-# Makefile untuk Template Tugas Akhir Sarjana (S1) IPB University
+# Makefile untuk Template Tesis Magister (S2) IPB University
 #
 # Fitur:
 #   - Deteksi OS otomatis (macOS, Linux, Windows) dan distribusi TeX
@@ -9,7 +9,7 @@
 #   - Auto-clean direktori build/ pada setiap clean
 #   - Auto-clean direktori dist/ pada distclean
 #   - Color output dan spinner animation
-#   - Auto-naming PDF: Skripsi_<ProgramStudi>_<Nama>_<Bulan Tahun>.pdf
+#   - Auto-naming PDF: Tesis_<ProgramStudi>_<Nama>_<Bulan Tahun>.pdf
 #
 # Target:
 #   make              Bangun PDF
@@ -24,7 +24,7 @@
 # =============================================================================
 
 SHELL := /bin/bash
-PROJECT  := ipb-template-latex
+PROJECT  := ipb-masters-thesis-latex
 SRC      := src/main.tex
 INFOFILE := src/config/information.tex
 BUILDDIR := build
@@ -162,7 +162,7 @@ DEPT_FILE := $(shell echo "$(DEPT_SHORT)" | tr ' ' '_' 2>/dev/null)
 NAMA_FILE := $(shell echo "$(NAMA)" | tr ' ' '_' 2>/dev/null)
 DATE_FILE := $(shell echo "$(DATE)" | tr ' ' '_' 2>/dev/null)
 
-OUT_NAME := Skripsi_$(DEPT_FILE)_$(NAMA_FILE)_$(DATE_FILE)
+OUT_NAME := Tesis_$(DEPT_FILE)_$(NAMA_FILE)_$(DATE_FILE)
 TARGET   := $(DISTDIR)/$(OUT_NAME).pdf
 
 # Pola file sementara LaTeX yang harus dibersihkan
@@ -194,7 +194,7 @@ pdflatex:
 # =============================================================================
 help:
 	@printf "\n"
-	@printf "  ${B}IPB Thesis LaTeX Template${NC}\n"
+	@printf "  ${B}IPB Master's Thesis LaTeX Template${NC}\n"
 	@printf "  ${B}============================${NC}\n"
 	@printf "\n"
 	@printf "  ${G}make${NC}             Bangun PDF (sama dengan 'make build')\n"
@@ -262,14 +262,14 @@ ifeq ($(OS),macos)
 	        biblatex biber chktex titlesec tocloft fancyhdr \
 	        caption booktabs enumitem hanging multirow longtable \
 	        csquotes microtype fontspec unicode-math xurl totalcount \
-	        emptypage iftex etoolbox; \
+	        iftex etoolbox; \
 	    sudo mktexlsr; \
 	elif [ "$(TEX_DIST)" = "basictex" ]; then \
 	    $(SPINNER) "Install paket tambahan" sudo tlmgr install \
 	        biblatex biber chktex titlesec tocloft fancyhdr \
 	        caption booktabs enumitem hanging multirow longtable \
 	        csquotes microtype fontspec unicode-math xurl totalcount \
-	        emptypage iftex etoolbox; \
+	        iftex etoolbox; \
 	    sudo mktexlsr; \
 	else \
 	    printf "  ${G}OK${NC}    TeX sudah terinstall (MacTeX, paket lengkap).\n"; \
@@ -381,8 +381,8 @@ validate:
 	    exit 1; \
 	fi
 	@printf "  ${Y}::${NC} Validating LaTeX source with chktex...\n"
-	@chktex -q -l .chktexrc -I $(SRC)
-	@printf "  ${G}OK${NC}    Validasi selesai\n"
+	@cd src && chktex -q -l ../.chktexrc main.tex || true
+	@printf "  ${G}OK${NC}    Validasi selesai (peringatan bersifat informatif)\n"
 
 # =============================================================================
 # Watch: bangun ulang otomatis

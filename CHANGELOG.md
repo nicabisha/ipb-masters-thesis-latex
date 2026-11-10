@@ -3,6 +3,35 @@
 Semua perubahan penting pada proyek ini akan didokumentasikan di berkas
 ini. Format penomoran versi mengikuti [Semantic Versioning](https://semver.org/).
 
+## [1.0.0-magister] - 2026-11-10
+
+### Ditambah
+- **Port program magister (S-2)**: template diadaptasi ke templat Word resmi
+  `format tesis terbaru.docx` dan PPTA IPB 2026 untuk tesis magister.
+- Sakelar `\TampilkanPembimbingTiga` untuk menampilkan pembimbing ketiga pada
+  halaman pengesahan, Sorotan/Highlights, Ringkasan/Summary, dan Prakata.
+- Halaman `RINGKASAN`/`SUMMARY` multi-paragraf (maksimum dua halaman) yang
+  menggantikan `ABSTRAK`/`ABSTRACT`.
+- Halaman `RINGKASAN VISUAL`/`GRAPHICAL SUMMARY` dengan kotak placeholder netral
+  tanpa gambar contoh.
+- Berkas templat Word `docs/format tesis terbaru.docx` dan PDF pembanding
+  `docs/format tesis terbaru.pdf`.
+
+### Diubah
+- Halaman sampul, pernyataan, tim penguji, lembar pengesahan, prakata, dan
+  riwayat hidup disesuaikan dengan naskah tesis magister.
+- Lembar pengesahan memakai "Dekan Fakultas/Sekolah" sebagai pejabat kedua dan
+  tata letak tanda tangan mengikuti templat Word.
+- Margin, jarak judul bab, dan posisi halaman pemisah LAMPIRAN disetel ulang
+  agar sesuai dengan PDF pembanding.
+- Nama berkas keluaran memakai awalan `Tesis_`.
+
+### Dihapus
+- Ketergantungan `emptypage` dan `chngcntr` (digantikan oleh `\cleardoublepage`
+  khusus dan `\counterwithout` bawaan LaTeX).
+- Halaman judul dalam terpisah dan blok hak cipta mandiri (menjadi bagian dari
+  halaman pernyataan).
+
 ## [Unreleased]
 
 ### Ditambah

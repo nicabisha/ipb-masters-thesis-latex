@@ -1,7 +1,7 @@
 # Kontribusi
 
-Terima kasih sudah tertarik untuk berkontribusi pada Template Tugas
-Akhir Sarjana (S1) IPB University dalam format LaTeX. Kontribusi
+Terima kasih sudah tertarik untuk berkontribusi pada Template Tesis
+Magister (S-2) IPB University dalam format LaTeX. Kontribusi
 berupa laporan masalah (issue), saran perbaikan, maupun pull request
 sangat kami harapkan.
 
@@ -13,7 +13,7 @@ Jika Anda menemukan bug, ketidaksesuaian format dengan PPTA IPB 2026, atau
 memiliki saran perbaikan:
 
 1. Pastikan masalah tersebut belum pernah dilaporkan dengan mencari di
-   halaman [Issues](https://github.com/raihanpka/ipb-thesis-latex/issues).
+   halaman [Issues](https://github.com/nicabisha/ipb-masters-thesis-latex/issues).
 2. Gunakan template issue yang tersedia.
 3. Sertakan:
    - Versi TeX Live, MiKTeX, atau Tectonic yang digunakan.
@@ -34,7 +34,7 @@ memiliki saran perbaikan:
    - Kompilasi sukses dengan `make build` tanpa peringatan.
    - `make validate` tidak menghasilkan kesalahan fatal.
    - Perubahan sesuai dengan PPTA IPB 2026 dan templat
-     `Skripsi Sain-Tek-Kes [20260812].dotx`.
+     `docs/format tesis terbaru.docx`.
    - Berkas baru di tempat yang tepat dan mengikuti pola penamaan
      `kebab-case`.
    - Komentar header di bagian atas setiap `.tex` baru.
@@ -64,7 +64,7 @@ direktori:
 ```
 src/
   config/        Style, data, dan aturan
-  abstract/      Abstrak (id) dan Abstract (en)
+  ringkasan/     Ringkasan (id) dan Summary (en)
   preliminaries/ Bagian Awal
   chapters/      Bagian Inti (bab 1 s.d. bab 5)
   backmatter/    Bagian Akhir

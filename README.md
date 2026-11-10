@@ -1,62 +1,73 @@
-# Template Tugas Akhir Sarjana (S1) IPB University
+# Template Tesis Magister (S2) IPB University
 
 [![LaTeX](https://img.shields.io/badge/LaTeX-LuaLaTeX-blue.svg)](https://www.latex-project.org/)
 [![Tectonic](https://img.shields.io/badge/Tectonic-supported-blueviolet.svg)](https://tectonic-typesetting.github.io/)
 [![TeX Live](https://img.shields.io/badge/TeX%20Live-2024%2B-green.svg)](https://tug.org/texlive/)
 [![MiKTeX](https://img.shields.io/badge/MiKTeX-supported-brightgreen.svg)](https://miktex.org/)
-[![Overleaf](https://img.shields.io/badge/Overleaf-ready-brightgreen.svg)](https://www.overleaf.com/read/zcgrrzkfgkcw)
-[![GitHub Stars](https://img.shields.io/github/stars/raihanpka/ipb-thesis-latex)](https://github.com/raihanpka/ipb-thesis-latex/stargazers)
+[![GitHub Stars](https://img.shields.io/github/stars/nicabisha/ipb-masters-thesis-latex)](https://github.com/nicabisha/ipb-masters-thesis-latex/stargazers)
 
-Template LaTeX untuk penulisan skripsi dan tugas akhir program sarjana (S1) di
-Institut Pertanian Bogor (IPB University), khususnya rumpun Sains, Teknik, dan
-Kesehatan. Template ini mengikuti **Pedoman Penyajian Tugas Akhir (PPTA) IPB
-2026** dan templat resmi `Skripsi Sain-Tek-Kes [20260812].dotx`. Pengaturan
-margin, font, penomoran, caption, bagian awal, dan format sitasi telah
-disesuaikan dengan acuan terbaru tersebut.
+Template LaTeX untuk penulisan **tesis magister (S-2)** di Institut Pertanian
+Bogor (IPB University). Template ini mengikuti **Pedoman Penyajian Tugas Akhir
+(PPTA) IPB 2026** dan templat Word resmi `format tesis terbaru.docx`. Margin,
+font, penomoran, caption, bagian awal, dan format sitasi telah disesuaikan
+dengan acuan terbaru tersebut.
 
-Template LaTeX ini merupakan adaptasi mandiri dan bukan produk resmi IPB
+Template ini merupakan adaptasi mandiri dan bukan produk resmi IPB
 University. Jika terdapat perbedaan, pedoman dan templat resmi yang berlaku
 menjadi acuan utama.
 
-## Memulai
+Template ini adalah port program magister dari
+[raihanpka/ipb-thesis-latex](https://github.com/raihanpka/ipb-thesis-latex)
+(template S1). Kredit dan lisensi upstream dipertahankan; lihat
+[Kredit dan Atribusi](#kredit-dan-atribusi).
 
-Cara termudah untuk menggunakan template ini:
+## Perbedaan utama dengan template S1
+
+| Aspek | S1 | S2 (repositori ini) |
+|---|---|---|
+| halaman pernyataan | "skripsi" | "tesis" dan gelar magister |
+| abstrak | `ABSTRAK`/`ABSTRACT`, satu paragraf | `RINGKASAN`/`SUMMARY`, beberapa paragraf, maksimum dua halaman |
+| abstrak grafis | `ABSTRAK GRAFIS` | `RINGKASAN VISUAL` dengan kotak placeholder netral |
+| jumlah pembimbing | dua | dua (bawaan) atau tiga, diatur satu sakelar |
+| pejabat pengesahan | dua pejabat | Ketua Program Studi dan Dekan Fakultas/Sekolah |
+| riwayat hidup | riwayat S-1 | riwayat S-2, pekerjaan, dan publikasi |
+
+## Memulai
 
 1. **Fork** repositori ini di GitHub ke akun Anda.
 2. **Clone** fork Anda ke komputer lokal.
 3. **Isi** data Anda di `src/config/information.tex` (nama, NIM, judul,
-   pembimbing, departemen, dan sebagainya).
-4. **Ganti** teks panduan pada `src/preliminaries/`, `src/abstract/`,
-   `src/chapters/`, dan `src/backmatter/` dengan isi skripsi Anda.
-5. **Build** PDF dengan `make` (lihat [Penggunaan](#penggunaan)), atau
-   gunakan Overleaf dengan tautan di atas.
+   pembimbing, program studi, dan sebagainya).
+4. **Ganti** teks panduan pada `src/preliminaries/`, `src/ringkasan/`,
+   `src/chapters/`, dan `src/backmatter/` dengan isi tesis Anda.
+5. **Build** PDF dengan `make` (lihat [Penggunaan](#penggunaan)).
 
 ## Kebutuhan
 
-Template ini mendukung compiler modern **Tectonic** (ringan, auto-download paket) maupun distribusi LaTeX lengkap dengan **LuaLaTeX**, `latexmk`, `biber`, dan paket-paket yang tercantum dalam `src/config/ipb-thesis.sty`. `chktex` diperlukan untuk validasi. Opsi yang didukung:
+Template ini mendukung compiler modern **Tectonic** (ringan, mengunduh paket
+secara otomatis) maupun distribusi LaTeX lengkap dengan **LuaLaTeX**,
+`latexmk`, `biber`, dan paket-paket yang tercantum dalam
+`src/config/ipb-thesis.sty`. `chktex` diperlukan untuk validasi.
 
-- **Tectonic** (lintas platform, sangat direkomendasikan: instalasi ringan
-  ~50 MB, otomatis mengunduh paket yang dibutuhkan tanpa konfigurasi manual)
+- **Tectonic** (lintas platform, sangat direkomendasikan: instalasi ringan,
+  paket diunduh otomatis)
 - **macOS**: Tectonic, BasicTeX, atau MacTeX
 - **Windows**: Tectonic, MiKTeX, atau TeX Live
-- **Linux**: Tectonic atau TeX Live (paket texlive-full atau texlive-latex-extra)
-- **Web**: Overleaf (tidak perlu instalasi lokal)
+- **Linux**: Tectonic atau TeX Live (`texlive-full` atau `texlive-latex-extra`)
 
 Detail instalasi per platform tersedia di [GUIDE.md](GUIDE.md).
 
 ## Penggunaan
 
-Template ini dilengkapi skrip kompilasi. Untuk build PDF:
-
 Linux atau macOS:
 
 ```
-make              Build PDF (otomatis memilih tectonic atau pdflatex)
-make build        Build PDF (dapat ditambah ENGINE=tectonic atau ENGINE=pdflatex)
+make              Build PDF (otomatis memilih compiler)
+make build        Build PDF (dapat ditambah ENGINE=tectonic atau ENGINE=lualatex)
 make tectonic     Build PDF khusus dengan Tectonic
-make pdflatex     Build PDF khusus dengan pdfLaTeX
-make doctor       Cek diagnostik ketersediaan compiler dan tool
-make clean        Hapus artefak atau file temporary hasil kompilasi LaTeX
+make lualatex     Build PDF khusus dengan LuaLaTeX
+make doctor       Cek ketersediaan compiler dan tool
+make clean        Hapus artefak atau file sementara
 make distclean    Hapus direktori build/ dan dist/
 make validate     Validasi sumber LaTeX dengan chktex
 make watch        Build ulang otomatis saat ada perubahan
@@ -66,38 +77,46 @@ make help         Tampilkan pesan bantuan
 Windows:
 
 ```
-make.bat          Build PDF (otomatis memilih tectonic atau latexmk)
-make.bat build    Build PDF (sama dengan default)
-make.bat tectonic Build PDF khusus dengan Tectonic
-make.bat pdflatex Build PDF khusus dengan latexmk/pdfLaTeX
-make.bat clean    Hapus artefak
+make.bat           Build PDF (otomatis memilih compiler)
+make.bat build     Build PDF (sama dengan default)
+make.bat tectonic  Build PDF khusus dengan Tectonic
+make.bat lualatex  Build PDF khusus dengan LuaLaTeX
+make.bat clean     Hapus artefak
 make.bat distclean Hapus direktori build/ dan dist/
-make.bat validate Validasi dengan chktex
+make.bat validate  Validasi dengan chktex
 ```
 
 Tanpa Makefile:
 
 ```
-# Menggunakan LuaLaTeX (rekomendasi distribusi lengkap):
+# LuaLaTeX (distribusi lengkap):
 latexmk -lualatex -output-directory=build src/main.tex
 
-# Menggunakan Tectonic (rekomendasi ringan):
+# Tectonic (ringan):
 tectonic -Z search-path=. -Z search-path=src/config -Z search-path=src -o build src/main.tex
 ```
 
 Nama PDF dihasilkan otomatis dari data di `src/config/information.tex`
-dengan format `Skripsi_<ProgramStudiSingkat>_<NamaPenulis>_<Bulan Tahun>.pdf`.
-Contoh: `Skripsi_Ilmu_Komputer_Raihan_Putra_Kirana_Jun_2026.pdf`.
+dengan format `Tesis_<ProgramStudiSingkat>_<NamaPenulis>_<Bulan Tahun>.pdf`.
+Contoh: `Tesis_Ilmu_Komputer_Nama_Penulis_Jun_2026.pdf`.
 
-Hasil kompilasi bernama otomatis berada di `dist/`. Salinan hasil terbaru juga
-ditulis ke `main.pdf` agar tetap kompatibel dengan struktur repositori asli.
-File sementara latexmk berada di `build/`; `build/` dan `dist/` diabaikan oleh
-Git.
+## Mengatur jumlah pembimbing
+
+Bawaannya dua pembimbing. Untuk komisi pembimbing bertiga, ubah satu baris di
+`src/config/information.tex`:
+
+```latex
+\newcommand{\TampilkanPembimbingTiga}{true}
+\newcommand{\NamaPembimbingTiga}{Nama Pembimbing 3}
+```
+
+Sakelar ini mengatur baris tanda tangan ketiga pada halaman pengesahan sekaligus
+penyebutan nama pada Sorotan/Highlights, Ringkasan/Summary, dan Prakata.
 
 ## Struktur Proyek
 
 ```
-ipb-thesis-latex/
+ipb-masters-thesis-latex/
 |
 +-- Makefile                    Target: build, clean, validate, dst.
 +-- make.bat                    Wrapper Windows
@@ -106,89 +125,65 @@ ipb-thesis-latex/
 +-- ipb.bst                     Kompatibilitas BibTeX lama
 +-- ipb.csl                     Kompatibilitas citeproc lama
 +-- chapters/                   Kompatibilitas struktur repositori asli
-|   +-- cover_dalam.tex
-|   +-- hak_cipta.tex
-|   +-- tim_penguji.tex
-|
-+-- docs/                       Arsip dokumen referensi struktur upstream
-|   +-- Template Tugas Akhir.dotx
-|   +-- Templat tugas akhir S1.docx
-|
++-- docs/                       Templat Word resmi dan PDF pembanding
 +-- scripts/                    Skrip pembantu
-|   +-- spinner.sh              Animasi spinner
-|   +-- extract-info.py         Ekstrak metadata untuk auto-naming
-|
 +-- src/
     +-- main.tex                Entry point LaTeX
-    +-- config/                 Konfigurasi
-    |   +-- ipb-thesis.sty      Style utama (margins, font, headings, captions)
-    |   +-- information.tex     Data penulis, skripsi, institusi
+    +-- config/
+    |   +-- ipb-thesis.sty      Style utama
+    |   +-- information.tex     Data penulis, tesis, institusi
     |   +-- hyphenation-id.tex  Aturan pemenggalan kata
     |   +-- indonesian.lbx      Lokalisasi BibLaTeX Bahasa Indonesia
     |
-    +-- abstract/               Abstrak (id) dan Abstract (en)
-    |   +-- abstract.tex        Penggabung kedua bahasa pada satu halaman
-    |   +-- abstract-id.tex
-    |   +-- abstract-en.tex
+    +-- ringkasan/              Ringkasan (id) dan Summary (en)
+    |   +-- ringkasan.tex
+    |   +-- ringkasan-id.tex
+    |   +-- ringkasan-en.tex
     |
     +-- preliminaries/          Bagian Awal
     |   +-- cover.tex
     |   +-- pernyataan.tex
     |   +-- sorotan.tex
-    |   +-- abstrak-grafis.tex
+    |   +-- ringkasan-visual.tex
     |   +-- tim-penguji.tex
     |   +-- lembar-persetujuan.tex
     |   +-- prakata.tex
     |   +-- daftar-isi.tex
     |
     +-- chapters/               Bagian Inti (bab 1 s.d. bab 5)
-    |   +-- chapter-1.tex
-    |   +-- chapter-2.tex
-    |   +-- chapter-3.tex
-    |   +-- chapter-4.tex
-    |   +-- chapter-5.tex
-    |
     +-- backmatter/             Bagian Akhir
     |   +-- daftar-pustaka.tex
     |   +-- lampiran.tex
     |   +-- riwayat-hidup.tex
     |
     +-- refs/                   Database referensi BibTeX/biber
-    |   +-- daftar-pustaka.bib
-    |   +-- ipb.csl
-    |   +-- ipb-en.csl
-    |
     +-- resources/              Gambar, logo, dan sumber daya lain
-        +-- ipb-logo.png
-        +-- contoh-gambar1.jpg
-        +-- contoh-gambar2.jpg
 ```
 
-## Menulis Skripsi
+## Menulis Tesis
 
-- Setiap berkas `.tex` memiliki komentar header yang menjelaskan
-  fungsinya.
-- Atur judul, nama, NIM, pembimbing, departemen, dan data lain di
-  `src/config/information.tex` (satu sumber kebenaran untuk semua
-  halaman).
+- Setiap berkas `.tex` memiliki komentar header yang menjelaskan fungsinya.
+- Atur judul, nama, NIM, pembimbing, program studi, dan data lain di
+  `src/config/information.tex` (satu sumber kebenaran untuk semua halaman).
 - Nilai bawaan berupa placeholder seperti `Nama Penulis`, `NIM`, `20XX`, dan
   `Nama Pembimbing 1`; ganti seluruh placeholder sebelum naskah diserahkan.
-- Tulis isi bab di `src/chapters/chapter-N.tex`. Untuk menambah bab
-  baru, buat berkas baru lalu tambahkan `\input{chapters/chapter-N}`
-  di `src/main.tex`.
-- Sorotan, abstrak grafis, abstrak dwibahasa, Bab I sampai V, tabel, gambar,
-  daftar pustaka, lampiran, dan Riwayat Hidup telah dilengkapi teks panduan
-  dari DOTX resmi; ganti dengan isi sebenarnya saat menulis.
-- Tambahkan referensi di `src/refs/daftar-pustaka.bib` dan sitasi
-  dengan `\citep{key}` atau `\citet{key}`.
-- Salinan lokal pedoman, kumpulan DOTX, dan PDF pembanding dapat digunakan
-  untuk audit format. Path referensi terbaru tersebut dicantumkan dalam
-  `.gitignore` agar tidak ikut masuk ke repositori.
+- Tulis isi bab di `src/chapters/chapter-N.tex`. Untuk menambah bab baru, buat
+  berkas baru lalu tambahkan `\input{chapters/chapter-N}` di `src/main.tex`.
+- Ringkasan dan Summary ditulis di `src/ringkasan/ringkasan-id.tex` dan
+  `src/ringkasan/ringkasan-en.tex`; keduanya digabung oleh
+  `src/ringkasan/ringkasan.tex`. Panjang maksimum dua halaman.
+- Ringkasan Visual memakai kotak placeholder kosong. Isi `\BerkasRingkasanVisual`
+  (dan `\BerkasRingkasanVisualInggris`) dengan path gambar bila sudah ada.
+- Tambahkan referensi di `src/refs/daftar-pustaka.bib` dan sitasi dengan
+  `\citep{key}` atau `\citet{key}`.
+- Halaman kosong pada keluaran berasal dari aturan `openright` (setiap bagian
+  besar dimulai pada halaman ganjil) dan memang disengaja untuk pencetakan.
+  Halaman tersebut benar-benar kosong: tanpa nomor halaman dan tanpa header.
 
 ## Spesifikasi Format
 
 Seluruh pengaturan berikut sudah diterapkan di `src/config/ipb-thesis.sty`
-sesuai PPTA IPB 2026 dan templat `Skripsi Sain-Tek-Kes [20260812].dotx`.
+sesuai PPTA IPB 2026 dan templat `format tesis terbaru.docx`.
 
 | Elemen | Spesifikasi |
 |---|---|
@@ -211,41 +206,47 @@ sesuai PPTA IPB 2026 dan templat `Skripsi Sain-Tek-Kes [20260812].dotx`.
 | Daftar ilustrasi | Daftar tabel/gambar/lampiran muncul jika jumlahnya lebih dari satu |
 | Sitasi dan daftar pustaka | BibLaTeX + biber, Harvard nama–tahun/CSE edisi ke-9 |
 | Bahasa utama | Indonesia, dengan dukungan Inggris |
-| Compiler utama | LuaLaTeX |
+| Compiler utama | LuaLaTeX atau Tectonic |
 
 ## Kontribusi
 
-Kontribusi berupa laporan masalah, saran perbaikan, maupun pull request
-sangat disambut. Silakan baca [CONTRIBUTING.md](CONTRIBUTING.md) untuk
-panduan singkat sebelum berkontribusi.
+Kontribusi berupa laporan masalah, saran perbaikan, maupun pull request sangat
+disambut. Silakan baca [CONTRIBUTING.md](CONTRIBUTING.md) untuk panduan singkat
+sebelum berkontribusi.
 
 ## Lisensi
 
 Template ini dilisensikan di bawah [Lisensi MIT](LICENSE). Pedoman dan templat
 Word resmi merupakan milik **IPB University**. Template LaTeX ini merupakan
-hasil konversi dan adaptasi mandiri yang tidak bersifat resmi dan tidak
-terafiliasi dengan IPB University.
-
-Lihat [GUIDE.md](GUIDE.md) untuk detail instalasi per platform,
-troubleshooting, kustomisasi lanjutan, dan detail perubahan di
-[CHANGELOG.md](CHANGELOG.md).
+hasil adaptasi mandiri yang tidak bersifat resmi dan tidak terafiliasi dengan
+IPB University.
 
 ## Kredit dan Atribusi
 
-Pedoman dan templat Word asli merupakan milik **IPB University**.
-Template LaTeX ini merupakan hasil konversi dan adaptasi mandiri yang
-tidak bersifat resmi dan tidak terafiliasi dengan IPB University.
+Template ini adalah port program magister dari
+**[raihanpka/ipb-thesis-latex](https://github.com/raihanpka/ipb-thesis-latex)**
+karya *Raihan Putra Kirana* dan para kontributor, dengan lisensi MIT. Struktur
+proyek, style dasar, Makefile, dan berkas pendukung berasal dari proyek
+tersebut; bagian awal, ringkasan, dan penyesuaian format magister ditambahkan
+di repositori ini.
 
-**Kontributor:**
-- *Raihan Putra Kirana* - Github: [@raihanpka](https://github.com/raihanpka)
-- *Mochamad Chairulridjal Nurvikri* - Github: [@chairulridjal](https://github.com/chairulridjal)
-- *Ghiffari Bravia Hisham* - Github: [@ghiffaribraviah](https://github.com/ghiffaribraviah)
+Pedoman dan templat Word asli merupakan milik **IPB University**.
+
+**Kontributor upstream:**
+- *Raihan Putra Kirana* — GitHub: [@raihanpka](https://github.com/raihanpka)
+- *Mochamad Chairulridjal Nurvikri* — GitHub: [@chairulridjal](https://github.com/chairulridjal)
+- *Ghiffari Bravia Hisham* — GitHub: [@ghiffaribraviah](https://github.com/ghiffaribraviah)
 
 **Atribusi tambahan:**
-- Berkas CSL di `src/refs/ipb.csl` dan `src/refs/ipb-en.csl` (untuk pengguna Pandoc/citeproc) diadaptasi dari [auriza/csl-ipb](https://github.com/auriza/csl-ipb) karangan *Pak Auriza Rahmad Akbar* ([@auriza](https://github.com/auriza)). Berkas tersebut telah diselaraskan dengan aturan jumlah penulis PPTA 2026.
-- Struktur proyek terinspirasi dari *Petra Novandi* dengan Github: [petrabarus/if-itb-latex](https://github.com/petrabarus/if-itb-latex).
+- Berkas CSL di `src/refs/ipb.csl` dan `src/refs/ipb-en.csl` diadaptasi dari
+  [auriza/csl-ipb](https://github.com/auriza/csl-ipb) karya *Auriza Rahmad
+  Akbar* ([@auriza](https://github.com/auriza)).
+- Struktur proyek terinspirasi dari *Petra Novandi*
+  ([petrabarus/if-itb-latex](https://github.com/petrabarus/if-itb-latex)).
 
-Jika template ini bermanfaat untuk penelitian atau penulisan skripsi
-Anda, silakan berikan bintang (star) pada repositori ini sebagai bentuk
-apresiasi. Kontribusi berupa laporan masalah (issue), saran perbaikan,
-maupun pull request sangat disambut.
+Jika template ini bermanfaat, silakan berikan bintang (star) pada repositori ini
+sebagai bentuk apresiasi.
+
+Lihat [GUIDE.md](GUIDE.md) untuk detail instalasi per platform, troubleshooting,
+dan kustomisasi lanjutan. Riwayat perubahan ada di
+[CHANGELOG.md](CHANGELOG.md).

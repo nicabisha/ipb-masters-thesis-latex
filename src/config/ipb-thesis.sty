@@ -1,13 +1,16 @@
 % =============================================================================
 % ipb-thesis.sty
 %
-% Style utama Skripsi Sains, Teknik, dan Kesehatan IPB University.
+% Style utama Tesis Magister IPB University.
 % Disesuaikan dengan Pedoman Penyajian Tugas Akhir (PPTA) IPB 2026 dan
-% templat resmi "Skripsi Sain-Tek-Kes [20260812]".
+% templat resmi "format tesis terbaru" untuk program magister.
+%
+% Berbasis ipb-thesis-latex (S1) karya Raihan Putra Kirana (@raihanpka),
+% lisensi MIT. Lihat README.md untuk kredit lengkap.
 % =============================================================================
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{ipb-thesis}[2026/10/09 v3.0 IPB PPTA 2026]
+\ProvidesPackage{ipb-thesis}[2026/11/10 v1.0 IPB Thesis Magister PPTA 2026]
 
 % -----------------------------------------------------------------------------
 % 1. Mesin, bahasa, dan font
@@ -74,7 +77,20 @@
 % 3. Header, footer, dan halaman kosong
 % -----------------------------------------------------------------------------
 \RequirePackage{fancyhdr}
-\RequirePackage{emptypage}
+
+% Halaman kosong akibat \cleardoublepage harus benar-benar kosong (tanpa
+% nomor halaman). Implementasi ini menggantikan paket emptypage agar tidak
+% menambah dependensi dan tetap kompatibel dengan semua distribusi TeX.
+\makeatletter
+\renewcommand{\cleardoublepage}{%
+  \clearpage
+  \if@twoside
+    \ifodd\c@page\else
+      \hbox{}\thispagestyle{empty}\newpage
+      \if@twocolumn\hbox{}\newpage\fi
+    \fi
+  \fi}
+\makeatother
 
 \fancypagestyle{frontmatter}{%
   \fancyhf{}%
@@ -107,7 +123,7 @@
   {16pt}
   {}
 
-\titlespacing*{\chapter}{0pt}{-15pt}{24pt}
+\titlespacing*{\chapter}{0pt}{-18.1pt}{25pt}
 
 \titleformat{\section}[hang]
   {\normalfont\fontsize{12pt}{14pt}\selectfont\bfseries}
@@ -145,7 +161,8 @@
 % 5. Caption dan penomoran ilustrasi
 % -----------------------------------------------------------------------------
 \RequirePackage{caption}
-\RequirePackage{chngcntr}
+% \counterwithout tersedia di kernel LaTeX sejak 2018; paket chngcntr tidak
+% lagi diperlukan.
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 

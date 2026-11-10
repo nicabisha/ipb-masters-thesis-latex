@@ -1,10 +1,10 @@
 # GUIDE.md
 
 Panduan lengkap instalasi, penggunaan, troubleshooting, dan kustomisasi
-untuk template LaTeX Tugas Akhir Sarjana (S1) IPB University. Dokumen
+untuk template LaTeX Tesis Magister (S-2) IPB University. Dokumen
 ini adalah pelengkap dari [README.md](README.md) yang hanya memuat
 informasi singkat. Versi ini mengikuti PPTA IPB 2026 dan templat resmi
-`Skripsi Sain-Tek-Kes [20260812].dotx`.
+`format tesis terbaru.docx`.
 
 ## Daftar Isi
 
@@ -18,7 +18,7 @@ informasi singkat. Versi ini mengikuti PPTA IPB 2026 dan templat resmi
   - [1.7 Verifikasi Instalasi](#17-verifikasi-instalasi)
 - [2. Penggunaan Template](#2-penggunaan-template)
   - [2.1 Isi Data Mahasiswa](#21-isi-data-mahasiswa)
-  - [2.2 Tulis Isi Skripsi](#22-tulis-isi-skripsi)
+  - [2.2 Tulis Isi Tesis](#22-tulis-isi-tesis)
   - [2.3 Bangun PDF](#23-bangun-pdf)
   - [2.4 Tambah Referensi](#24-tambah-referensi)
   - [2.5 Tambah Bab Baru](#25-tambah-bab-baru)
@@ -234,7 +234,7 @@ Buka `src/config/information.tex` dan ganti semua placeholder:
 \newcommand{\NamaPenulis}{Nama Penulis}
 \newcommand{\NamaPenulisInggris}{Student Name}
 \newcommand{\NIM}{NIM}
-\newcommand{\JudulSkripsi}{Judul Karya Ilmiah}
+\newcommand{\JudulTesis}{Judul Karya Ilmiah}
 \newcommand{\NamaPembimbingSatu}{Nama Pembimbing 1}
 \newcommand{\NamaPembimbingDua}{Nama Pembimbing 2}
 \newcommand{\ProgramStudi}{Nama Program Studi}
@@ -250,15 +250,23 @@ template masih berupa contoh. Sebelum penyerahan, ubah nilainya menjadi
 `true` atau `false`; jika bernilai `true`, isi juga `\NamaAlatAI` dan
 `\TujuanPenggunaanAI`.
 
-### 2.2 Tulis Isi Skripsi
+### 2.2 Tulis Isi Tesis
 
 Edit file per bab di `src/chapters/chapter-N.tex`. Bagian awal berada di
-`src/preliminaries/` dan abstrak berada di `src/abstract/`. Seluruhnya sudah
+`src/preliminaries/` dan ringkasan berada di `src/ringkasan/`. Seluruhnya sudah
 dilengkapi teks panduan PPTA 2026; ganti dengan isi sebenarnya.
 
-Isi sorotan di `src/preliminaries/sorotan.tex`. Untuk abstrak grafis, isi
-judulnya dan atur path gambar melalui `\BerkasAbstrakGrafis` di
-`src/config/information.tex`.
+Isi sorotan di `src/preliminaries/sorotan.tex`. Ringkasan dan Summary ditulis
+di `src/ringkasan/ringkasan-id.tex` dan `src/ringkasan/ringkasan-en.tex`
+(maksimum dua halaman). Untuk Ringkasan Visual, atur path gambar melalui
+`\BerkasRingkasanVisual` dan `\BerkasRingkasanVisualInggris` di
+`src/config/information.tex`; biarkan kosong untuk memakai kotak placeholder.
+
+Jumlah pembimbing diatur satu sakelar di `src/config/information.tex`:
+
+```latex
+\newcommand{\TampilkanPembimbingTiga}{true}  % false untuk dua pembimbing
+```
 
 Untuk menulis subbab baru dalam sebuah bab:
 
@@ -284,7 +292,7 @@ make              # Linux atau macOS
 make.bat          # Windows
 ```
 
-Output berada di `dist/Skripsi_<ProgramStudiSingkat>_<Nama>_<Bulan Tahun>.pdf`
+Output berada di `dist/Tesis_<ProgramStudiSingkat>_<Nama>_<Bulan Tahun>.pdf`
 dan disalin ke `main.pdf` untuk kompatibilitas struktur upstream.
 
 Untuk terus memantau perubahan:

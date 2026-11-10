@@ -1,8 +1,9 @@
 % =============================================================================
 % information.tex
 %
-% Satu sumber kebenaran untuk data penulis, skripsi, institusi, pernyataan AI,
-% pengesahan, dan komponen awal lain sesuai PPTA IPB 2026.
+% Satu sumber kebenaran untuk data penulis, tesis, institusi, pernyataan AI,
+% pengesahan, dan komponen awal lain sesuai PPTA IPB 2026 dan templat
+% "format tesis terbaru" (program magister).
 %
 % Pemuatan: \input{config/information} dari src/main.tex.
 % =============================================================================
@@ -22,6 +23,33 @@
 \newcommand{\NIPPembimbingSatu}{}
 \newcommand{\NamaPembimbingDua}{Nama Pembimbing 2}
 \newcommand{\NIPPembimbingDua}{}
+% Pembimbing ketiga bersifat opsional. Set \TampilkanPembimbingTiga menjadi
+% true bila komisi pembimbing beranggotakan tiga orang. Nilai ini mengatur
+% baris tanda tangan pada halaman pengesahan sekaligus penyebutan nama pada
+% Sorotan/Highlights, Ringkasan/Summary, dan Prakata.
+\newcommand{\TampilkanPembimbingTiga}{false}
+\newcommand{\NamaPembimbingTiga}{Nama Pembimbing 3}
+
+% Daftar pembimbing yang dipakai di dalam kalimat.
+\newcommand{\DaftarPembimbing}{%
+  \ifdefstring{\TampilkanPembimbingTiga}{true}%
+    {\NamaPembimbingSatu, \NamaPembimbingDua, dan \NamaPembimbingTiga}%
+    {\NamaPembimbingSatu{} dan \NamaPembimbingDua}%
+}
+% Versi kapital untuk baris nama pada Sorotan/Highlights dan Ringkasan/Summary.
+\newcommand{\DaftarPembimbingKapital}{%
+  \ifdefstring{\TampilkanPembimbingTiga}{true}%
+    {\MakeUppercase{\NamaPembimbingSatu}, \MakeUppercase{\NamaPembimbingDua},
+     dan \MakeUppercase{\NamaPembimbingTiga}}%
+    {\MakeUppercase{\NamaPembimbingSatu} dan \MakeUppercase{\NamaPembimbingDua}}%
+}
+% Versi bahasa Inggris ("and") untuk baris nama pada Highlights/Summary.
+\newcommand{\DaftarPembimbingKapitalInggris}{%
+  \ifdefstring{\TampilkanPembimbingTiga}{true}%
+    {\MakeUppercase{\NamaPembimbingSatu}, \MakeUppercase{\NamaPembimbingDua},
+     and \MakeUppercase{\NamaPembimbingTiga}}%
+    {\MakeUppercase{\NamaPembimbingSatu} and \MakeUppercase{\NamaPembimbingDua}}%
+}
 
 % --- Data Penguji ---
 \newcommand{\NamaPengujiSatu}{Nama Lengkap dan Gelar}
@@ -30,34 +58,33 @@
 % --- Data Pengesahan ---
 \newcommand{\NamaKetuaProgramStudi}{Nama Lengkap dan Gelar}
 \newcommand{\NIPKetuaProgramStudi}{}
-% Pejabat kedua bersifat opsional. Isi true bila blok ini perlu ditampilkan.
-\newcommand{\TampilkanPejabatKedua}{true}
-\newcommand{\JabatanPejabatKedua}{Ketua Departemen/Wakil Dekan Bidang Akademik dan Kemahasiswaan}
+% Pejabat kedua pada halaman pengesahan: Dekan Fakultas/Sekolah.
+\newcommand{\JabatanPejabatKedua}{Dekan Fakultas/Sekolah}
 \newcommand{\NamaPejabatKedua}{Nama Lengkap dan Gelar}
 \newcommand{\NIPPejabatKedua}{}
 % Biarkan kosong agar templat hanya menampilkan label dan ruang pengisian.
 \newcommand{\TanggalUjian}{}
 \newcommand{\TanggalLulus}{}
 
-% --- Data Skripsi ---
-\newcommand{\JudulSkripsi}{%
+% --- Data Tesis ---
+\newcommand{\JudulTesis}{%
   Judul Karya Ilmiah Maksimum Tiga Baris, Lima Belas Kata Tidak Termasuk
   Kata Depan dan Kata Sambung%
 }
-\newcommand{\JudulSkripsiInggris}{%
-  Title of Final Assignment%
+\newcommand{\JudulTesisInggris}{%
+  Title of Master's Thesis%
 }
 \newcommand{\KataKunci}{ditulis dalam bahasa Indonesia, disusun berdasarkan abjad, maksimum lima kata atau frasa}
 \newcommand{\Keywords}{written in English, arranged alphabetically, maximum five words or phrases}
 
-% Judul abstrak grafis maksimum enam kata, tidak termasuk kata depan/sambung.
-\newcommand{\JudulAbstrakGrafis}{%
-  Judul Abstrak Grafis Maksimum Enam Kata, Tidak Termasuk Kata Depan dan Kata Sambung}
-\newcommand{\JudulAbstrakGrafisInggris}{%
-  Graphical Abstract Title Maximum Six Words, Excluding Prepositions and Conjunctions}
+% Judul ringkasan visual maksimum enam kata, tidak termasuk kata depan/sambung.
+\newcommand{\JudulRingkasanVisual}{%
+  Judul Ringkasan Visual Maksimum Enam Kata, Tidak Termasuk Kata Depan dan Kata Sambung}
+\newcommand{\JudulRingkasanVisualInggris}{%
+  Graphical Summary Title Maximum Six Words, Excluding Prepositions and Conjunctions}
 % Isi dengan path berkas gambar untuk mengganti kotak placeholder.
-\newcommand{\BerkasAbstrakGrafis}{}
-\newcommand{\BerkasAbstrakGrafisInggris}{}
+\newcommand{\BerkasRingkasanVisual}{}
+\newcommand{\BerkasRingkasanVisualInggris}{}
 
 % --- Deklarasi penggunaan AI ---
 % Nilai placeholder mempertahankan pilihan [menggunakan/tidak menggunakan]
@@ -67,7 +94,7 @@
 \newcommand{\TujuanPenggunaanAI}{[alasan]}
 
 % --- Gelar dan sumber dana ---
-\newcommand{\GelarSarjana}{sarjana/sarjana terapan \ldots{}}
+\newcommand{\GelarMagister}{magister \ldots{}}
 % Kosongkan bila penelitian tidak memperoleh pendanaan khusus.
 \newcommand{\SumberDana}{}
 

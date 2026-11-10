@@ -1,0 +1,53 @@
+% =============================================================================
+% Ringkasan Visual dan Graphical Summary -- satu halaman
+% Gambar akhir disarankan memiliki resolusi sekurang-kurangnya 300 dpi.
+% =============================================================================
+
+\ipbprelimheading{RINGKASAN VISUAL}
+
+\begin{center}
+\ifdefempty{\BerkasRingkasanVisual}{%
+  \fbox{\parbox[c][5.7cm][c]{0.8\textwidth}{\centering
+    Sisipkan sebuah gambar yang secara visual merangkum temuan utama}}%
+}{%
+  \includegraphics[width=0.8\textwidth,height=5.7cm,keepaspectratio]{\BerkasRingkasanVisual}%
+}
+
+\vspace{0.3cm}
+
+{\bfseries\parbox{9cm}{\centering\JudulRingkasanVisual}\par}
+\end{center}
+
+\smallskip
+
+\begingroup
+\setlength{\parindent}{1.27cm}%
+Ringkasan visual/\textit{graphical summary} terdiri atas sebuah gambar yang
+secara visual merangkum temuan utama dari tugas akhir. Ringkasan visual ini
+disusun secara singkat dan berdiri sendiri, menyampaikan tujuan dan hasil
+penelitian, serta disajikan dengan cara yang menarik secara visual dengan
+resolusi gambar minimal 300 dpi. Ringkasan visual/\textit{graphical summary}
+ditulis dalam satu halaman. Judul diletakkan di bawah ringkasan
+visual/\textit{graphical summary}. Mahasiswa wajib mendeklarasikan penggunaan
+AI jika digunakan dalam pembuatan ringkasan visual dan perhatikan penggunaan
+elemen berhak cipta (lihat Suplemen 6).
+\par\endgroup
+
+\begin{otherlanguage}{english}
+\itshape
+\ipbprelimsubheading{GRAPHICAL SUMMARY}
+
+\begin{center}
+
+\ifdefempty{\BerkasRingkasanVisualInggris}{%
+  \fbox{\parbox[c][5.7cm][c]{0.8\textwidth}{\centering
+    Insert a single image that visually summarizes the main findings}}%
+}{%
+  \includegraphics[width=0.8\textwidth,height=5.7cm,keepaspectratio]{\BerkasRingkasanVisualInggris}%
+}
+
+\vspace{0.3cm}
+
+{\bfseries\parbox{9cm}{\centering\JudulRingkasanVisualInggris}\par}
+\end{center}
+\end{otherlanguage}

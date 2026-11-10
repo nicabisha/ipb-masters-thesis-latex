@@ -1,25 +1,25 @@
 % =============================================================================
-% main.tex -- Entry point Template Tugas Akhir Sarjana (S1) IPB University
+% main.tex -- Entry point Template Tesis Magister IPB University
 %
 % Template LaTeX ini diadaptasi dari PPTA IPB 2026 dan templat resmi
-% Skripsi Sains, Teknik, dan Kesehatan [20260812].
+% "format tesis terbaru" untuk program magister, dengan basis struktur
+% ipb-thesis-latex karya Raihan Putra Kirana (@raihanpka).
 %
 % Struktur:
 %   src/
 %     main.tex                    Berkas ini (entry point)
 %     config/                     Paket dan konfigurasi format
 %       ipb-thesis.sty            Style utama (margins, font, headings, dll.)
-%       information.tex           Data penulis, skripsi, institusi
+%       information.tex           Data penulis, tesis, institusi
 %       hyphenation-id.tex        Aturan pemenggalan kata
-%     abstract/                   Abstrak (id) dan Abstract (en)
+%     ringkasan/                  Ringkasan (id) dan Summary (en)
 %     preliminaries/              Bagian Awal (cover, pernyataan, dll.)
 %     chapters/                   Bagian Inti (Bab I s.d. Bab V)
 %     backmatter/                 Bagian Akhir (daftar pustaka, lampiran)
 %     resources/                  Gambar, logo, dan sumber daya lain
 %     refs/                       Database referensi BibTeX
 %
-% Konversi dan adaptasi ke LaTeX: Raihan Putra Kirana (@raihanpka)
-% Lisensi: MIT (lihat LICENSE)
+% Lisensi: MIT (lihat LICENSE). Kredit lengkap ada di README.md.
 % =============================================================================
 
 % -----------------------------------------------------------------------------
@@ -30,7 +30,7 @@
 % Style utama (margins, font, headings, captions, dst.)
 \usepackage{ipb-thesis}
 
-% Data penulis, skripsi, institusi
+% Data penulis, tesis, institusi
 \input{config/information}
 
 % Aturan pemenggalan kata
@@ -49,7 +49,7 @@
 % -----------------------------------------------------------------------------
 % 3. Metadata untuk hyperref
 % -----------------------------------------------------------------------------
-\title{\JudulSkripsi}
+\title{\JudulTesis}
 \author{\NamaPenulis}
 \date{\Tahun}
 
@@ -62,9 +62,9 @@
 % aman; metadata diisi setelah paket tersebut tersedia.
 \hypersetup{
   pdfauthor={\NamaPenulis},
-  pdftitle={\JudulSkripsi},
-  pdfsubject={Skripsi Sarjana IPB University -- PPTA 2026},
-  pdfkeywords={IPB, skripsi, tugas akhir, PPTA 2026}
+  pdftitle={\JudulTesis},
+  pdfsubject={Tesis Magister IPB University -- PPTA 2026},
+  pdfkeywords={IPB, tesis, magister, PPTA 2026}
 }
 
 \noindent\ignorespaces
@@ -87,9 +87,9 @@
 \pagestyle{frontmatter}
 \input{preliminaries/sorotan}
 \clearpage
-\input{preliminaries/abstrak-grafis}
+\input{preliminaries/ringkasan-visual}
 \clearpage
-\input{abstract/abstract}
+\input{ringkasan/ringkasan}
 \clearpage
 \input{preliminaries/tim-penguji}
 \clearpage

@@ -1,18 +1,18 @@
 cff-version: 1.2.0
-title: IPB Thesis LaTeX Template
+title: IPB Master's Thesis LaTeX Template
 message: "If you use this template, please cite it as below."
 type: software
 authors:
   - family-names: Kirana
     given-names: Raihan Putra
+  - name: ipb-masters-thesis-latex contributors
 license: MIT
-version: 3.0.0
-date-released: 2026-10-09
-repository-code: https://github.com/raihanpka/ipb-thesis-latex
-url: https://www.overleaf.com/read/zcgrrzkfgkcw#4b4995
+version: 1.0.0
+date-released: 2026-11-10
+repository-code: https://github.com/nicabisha/ipb-masters-thesis-latex
 keywords:
   - latex
   - thesis
+  - master
   - ipb-university
   - academic-writing
-  - overleaf

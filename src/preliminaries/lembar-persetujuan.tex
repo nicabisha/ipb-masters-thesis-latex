@@ -1,51 +1,58 @@
 % =============================================================================
-% Halaman Pengesahan -- PPTA IPB 2026
+% Halaman Pengesahan -- Tesis Magister, PPTA IPB 2026
+%
+% Memuat daftar tim penguji, data tesis, tanda tangan komisi pembimbing,
+% Ketua Program Studi, dan Dekan Fakultas/Sekolah.
+% Pembimbing ketiga hanya ditampilkan bila \TampilkanPembimbingTiga = true
+% (lihat src/config/information.tex).
 % =============================================================================
 
 \thispagestyle{empty}
 
 \noindent
-\begin{tabular}{@{}p{2.5cm}@{\hspace{0.2cm}}p{0.2cm}@{\hspace{0.2cm}}p{0.68\textwidth}@{}}
-Judul Skripsi & : & \JudulSkripsi \\
-Nama          & : & \NamaPenulis \\
-NIM           & : & \NIM
+\begin{tabular}{@{}p{2.5cm}@{}p{0.2cm}@{\hspace{0.03cm}}p{0.685\textwidth}@{}}
+Judul Tesis & : & \JudulTesis \\
+Nama        & : & \NamaPenulis \\
+NIM         & : & \NIM
 \end{tabular}
 
-\vspace{2.5cm}
+\vspace{2.447cm}
 
 \begin{center}
 \hspace*{1cm}Disetujui oleh
 \end{center}
 
-\vspace{1.1cm}
+\vspace{1.146cm}
 
+% Garis tanda tangan diletakkan di antara baris jabatan dan baris nama, sesuai
+% templat Word (garis berada pada baris pertama, nama pada baris berikutnya).
 \noindent
-\begin{tabular}{p{8.08cm}>{\raggedleft\arraybackslash}p{4.08cm}}
+\begin{tabular}{p{8.33cm}>{\raggedleft\arraybackslash}p{4.08cm}}
 Pembimbing 1:\newline
-\NamaPembimbingSatu & \mbox{}\newline\rule{4cm}{0.4pt} \\[1.95cm]
+\NamaPembimbingSatu & \raisebox{-4.7pt}[0pt][0pt]{\rule{4cm}{0.4pt}}\newline\mbox{} \\[1.95cm]
 Pembimbing 2:\newline
-\NamaPembimbingDua & \mbox{}\newline\rule{4cm}{0.4pt}
+\NamaPembimbingDua & \raisebox{-4.7pt}[0pt][0pt]{\rule{4cm}{0.4pt}}\newline\mbox{}%
+\ifdefstring{\TampilkanPembimbingTiga}{true}{\\[1.95cm]
+Pembimbing 3:\newline
+\NamaPembimbingTiga & \raisebox{-4.7pt}[0pt][0pt]{\rule{4cm}{0.4pt}}\newline\mbox{}}{}
 \end{tabular}
 
-\vspace{1.6cm}
+\vspace{0.926cm}
 
 \begin{center}
 \hspace*{1cm}Diketahui oleh
 \end{center}
 
-\vspace{0.5cm}
+\vspace{1.035cm}
 
 \noindent
 \begin{tabular}{p{8.08cm}>{\raggedleft\arraybackslash}p{4.08cm}}
 Ketua Program Studi:\newline
 \NamaKetuaProgramStudi\newline
-NIP \NIPKetuaProgramStudi & \mbox{}\newline\rule{4cm}{0.4pt}
-\ifdefstring{\TampilkanPejabatKedua}{true}{\\[2\baselineskip]
-dan atau (pilih salah satu)\newline
+NIP \NIPKetuaProgramStudi & \mbox{}\newline\rule{4cm}{0.4pt}\newline\mbox{} \\[2.03cm]
 \JabatanPejabatKedua:\newline
 \NamaPejabatKedua\newline
-NIP \NIPPejabatKedua & \mbox{}\newline\mbox{}\newline\mbox{}\newline
-  \rule{4cm}{0.4pt}}{}
+NIP \NIPPejabatKedua & \mbox{}\newline\rule{4cm}{0.4pt}\newline\mbox{}
 \end{tabular}
 
 \vfill
