@@ -291,9 +291,13 @@
   \endgroup
 }
 \newcommand{\ipblistofappendices}{%
-  \ipblistheading[26.5pt]{DAFTAR LAMPIRAN}{(jika lampiran hanya satu tidak perlu dibuat daftar)}%
+  \ipblistheading[16.5pt]{DAFTAR LAMPIRAN}{(jika lampiran hanya satu tidak perlu dibuat daftar)}%
   \begingroup
     \cftsetrmarg{3.55em}\cftsetpnumwidth{2.55em}%
+    % \l@lampiran tidak menambah 10 pt seperti daftar tabel/gambar, jadi
+    % jaraknya disamakan di sini. Nilai 16.5 pt + 10 pt = 26.5 pt menjaga
+    % tata letak saat catatan panduan ditampilkan tetap sama.
+    \vspace{10pt}%
     \@starttoc{loa}%
   \endgroup
 }
