@@ -1,5 +1,9 @@
 ## Build directories (Makefile output)
-/build/
+# Isi build/ diabaikan, tetapi folder dan penandanya dilacak agar perintah
+# `tectonic ... -o build` langsung berhasil setelah clone (Tectonic tidak
+# membuat direktori keluaran sendiri).
+/build/*
+!/build/.gitkeep
 /dist/
 
 ## Local source references used during the PPTA 2026 migration
