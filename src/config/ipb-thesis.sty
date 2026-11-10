@@ -261,14 +261,19 @@
   \ifdefstring{\TampilkanCatatanPanduan}{true}{#1}{}%
 }
 
+% Jarak judul daftar ilustrasi ke entri pertama saat catatan panduan
+% disembunyikan. Nilainya disamakan dengan jarak judul DAFTAR ISI ke entri
+% pertamanya (38,88 pt, terukur pada PDF pembanding) agar halaman tetap wajar.
+\newlength{\ipblistentryskip}
+\setlength{\ipblistentryskip}{14pt}
+
 % Versi daftar tanpa \chapter*, sehingga ketiga daftar dapat berbagi halaman.
 \newcommand{\ipblistheading}[3][12pt]{%
   \par\vspace{17pt}%
   {\centering\fontsize{14pt}{17pt}\selectfont\bfseries #2\par}%
   \ifdefstring{\TampilkanCatatanPanduan}{true}%
-    {{\centering\fontsize{12pt}{14pt}\selectfont\color{red} #3\par}}%
-    {{\centering\fontsize{12pt}{14pt}\selectfont\vphantom{#3}\par}}%
-  \vspace{#1}%
+    {{\centering\fontsize{12pt}{14pt}\selectfont\color{red} #3\par}\vspace{#1}}%
+    {\vspace{\ipblistentryskip}}%
 }
 \newcommand{\ipblistoftables}{%
   \ipblistheading[16pt]{DAFTAR TABEL}{(jika tabel hanya satu tidak perlu dibuat daftar)}%
