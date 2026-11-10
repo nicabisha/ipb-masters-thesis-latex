@@ -515,6 +515,21 @@ Gunakan di bab:
 
 Simpan `data.csv` di `src/resources/`.
 
+### 4.6 Menyembunyikan Catatan Panduan
+
+Teks merah pada templat adalah instruksi dari templat Word resmi, bukan bagian
+naskah. Semua catatan itu dimatikan dengan satu sakelar di
+`src/config/information.tex`:
+
+```latex
+\renewcommand{\TampilkanCatatanPanduan}{true}   % false = sembunyikan semua
+```
+
+Yang ikut hilang: catatan di bawah judul Daftar Tabel/Gambar/Lampiran dan
+catatan di akhir Prakata. Tata letak halaman daftar tetap sama karena tinggi
+baris catatan dipertahankan. Untuk catatan buatan sendiri, bungkus dengan
+`\ipbcatatan{...}`.
+
 ---
 
 ## 5. Troubleshooting
@@ -641,9 +656,12 @@ manual saat menulis:
 - **Kertas HVS vs kertas buklet** - margin sudah dikonfigurasi
   untuk penjilidan. Saat mencetak, gunakan mode **long edge**
   untuk duplex.
+- **Catatan panduan berwarna merah** - harus dihapus sebelum penyerahan.
+  Ubah `\TampilkanCatatanPanduan` menjadi `false` di
+  `src/config/information.tex` agar semuanya hilang sekaligus (lihat 4.6).
 
 ---
 
 Untuk pertanyaan lain, buka
-[issue](https://github.com/raihanpka/ipb-thesis-latex/issues) di
+[issue](https://github.com/nicabisha/ipb-masters-thesis-latex/issues) di
 repositori.

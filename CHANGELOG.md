@@ -53,6 +53,11 @@ ini. Format penomoran versi mengikuti [Semantic Versioning](https://semver.org/)
   yang aktif selain tool TeX Live/MiKTeX tradisional.
 - Panduan instalasi Tectonic di `GUIDE.md` (Bagian 1.1).
 - Badge Tectonic di `README.md`.
+- Sakelar `\TampilkanCatatanPanduan` untuk menyembunyikan seluruh catatan
+  panduan berwarna merah (judul Daftar Tabel/Gambar/Lampiran dan Prakata)
+  dengan satu baris di `config/information.tex`; tata letak halaman daftar
+  tidak bergeser karena ruang catatan dipertahankan. Perintah `\ipbcatatan`
+  tersedia untuk catatan tambahan pengguna.
 
 ### Diubah
 - Konfigurasi `ipb-thesis.sty` untuk menangani sumber daring dengan

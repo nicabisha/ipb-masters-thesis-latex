@@ -253,11 +253,21 @@
   \endgroup
 }
 
+% Catatan panduan berwarna merah: teks instruksi dari templat Word resmi yang
+% harus dihapus pada naskah akhir. Sakelar \TampilkanCatatanPanduan diatur di
+% config/information.tex; bila false, seluruh catatan merah hilang sekaligus.
+\providecommand{\TampilkanCatatanPanduan}{true}
+\newcommand{\ipbcatatan}[1]{%
+  \ifdefstring{\TampilkanCatatanPanduan}{true}{#1}{}%
+}
+
 % Versi daftar tanpa \chapter*, sehingga ketiga daftar dapat berbagi halaman.
 \newcommand{\ipblistheading}[3][12pt]{%
   \par\vspace{17pt}%
   {\centering\fontsize{14pt}{17pt}\selectfont\bfseries #2\par}%
-  {\centering\fontsize{12pt}{14pt}\selectfont\color{red} #3\par}%
+  \ifdefstring{\TampilkanCatatanPanduan}{true}%
+    {{\centering\fontsize{12pt}{14pt}\selectfont\color{red} #3\par}}%
+    {{\centering\fontsize{12pt}{14pt}\selectfont\vphantom{#3}\par}}%
   \vspace{#1}%
 }
 \newcommand{\ipblistoftables}{%

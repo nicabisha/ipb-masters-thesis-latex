@@ -113,6 +113,21 @@ Bawaannya dua pembimbing. Untuk komisi pembimbing bertiga, ubah satu baris di
 Sakelar ini mengatur baris tanda tangan ketiga pada halaman pengesahan sekaligus
 penyebutan nama pada Sorotan/Highlights, Ringkasan/Summary, dan Prakata.
 
+## Menyembunyikan catatan panduan
+
+Templat memuat teks merah berisi instruksi dari templat Word resmi, misalnya
+`(jika tabel hanya satu tidak perlu dibuat daftar)` di bawah judul Daftar
+Tabel/Gambar/Lampiran dan catatan di akhir Prakata. Seluruhnya dikendalikan
+satu sakelar di `src/config/information.tex`:
+
+```latex
+\renewcommand{\TampilkanCatatanPanduan}{false}  % true = tampilkan (bawaan)
+```
+
+Semua teks merah hilang sekaligus, tetapi tata letak halaman daftar tidak
+bergeser karena ruang catatan tetap dicadangkan. Catatan tambahan Anda sendiri
+dapat memakai `\ipbcatatan{...}` agar ikut tersembunyi oleh sakelar yang sama.
+
 ## Struktur Proyek
 
 ```
